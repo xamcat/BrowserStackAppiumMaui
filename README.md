@@ -45,7 +45,7 @@ BrowserStack’s [App Automate](https://www.browserstack.com/docs/app-automate/a
    - The repository includes BrowserStack configuration files for both Android and iOS projects. These files define the specific settings and capabilities required to run the tests on BrowserStack.
 
    The `browserstack.yml` file for the Android project can be found at `BasicAppiumNunitSample/UITests.Android/browserstack.yml` and
-   The `browserstack.yml` file for the iOS project can be found at `BasicAppiumNunitSample/UITests.iOS/browserstack.yml`. 
+   the `browserstack.yml` file for the iOS project can be found at `BasicAppiumNunitSample/UITests.iOS/browserstack.yml`. 
 
    A few key parts of this configuration file are : 
 
@@ -65,7 +65,13 @@ BrowserStack’s [App Automate](https://www.browserstack.com/docs/app-automate/a
 5. **Update UITests to Use BrowserStack**:
    - To the respective `UITests.Android` and `UITests.iOS` folder, add the `browserstack.yml` files generated from Step 4. 
 
-   > You will require separate `browserstack.yml` files for each platform. 
+   > You will require separate `browserstack.yml` files for each platform.
+   
+
+   - To the respective `UITests.Android` and `UITests.iOS` projects, add the [BrowserStack.TestAdapter](https://www.nuget.org/packages/BrowserStack.TestAdapter) nuget package.
+     ```
+      <PackageReference Include="BrowserStack.TestAdapter" Version="0.13.3" />
+     ```
 
 5. **Run BrowserStack App Automate Tests**: 
     - Follow the informative [Documentation](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests) provided by BrowserStack to run the tests from your local machine. The tests can be run from [Visual Studio](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests#Visual_Studio) on **Windows** or by [BrowserStack CLI](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests#CLI) for **Mac**.
