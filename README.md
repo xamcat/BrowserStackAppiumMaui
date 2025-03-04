@@ -7,7 +7,7 @@ This repository code shows how to add [BrowserStack App Automate](https://www.br
 > **Note:** BrowserStack only supports .NET 8 at the moment. Therefore, the sample does not use .NET 9.
 [BrowerserStack App Automate Appium + NUnit Prerequisite](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests#prerequisites)
 
-> **Note:** BrowserStack App Automate Device Cloud supports only iOS and Android Devices at the moment, so that is the focus of this blog.
+> **Note:** BrowserStack App Automate Device Cloud supports only iOS and Android Devices at the moment, so that is the focus of this repository.
 [BrowerserStack App Automate Device List](https://www.browserstack.com/list-of-browsers-and-platforms/app_automate)
 
 ## BrowserStack App Automate
@@ -93,12 +93,12 @@ The GitHub Actions workflow file [`.github/workflows/browserStackTests.yml`](.gi
   appium driver install xcuitest
   ```
 
- - **For VM Runner Macs with Apple Silicon Chips Only**  When using a **Mac VM Runner**, we need the following extra step that installs the BrowserStack .NET tool and sets it up.
+ - **For VM Runner Macs with Apple Silicon Chips Only**:  When using a **Mac VM Runner with Apple Silicon**, we need the following extra step that installs the BrowserStack .NET tool and sets it up.
     ```bash
     dotnet tool install browserstack-sdk --version 1.16.3 --create-manifest-if-needed
     dotnet browserstack-sdk setup-dotnet --dotnet-path "." --dotnet-version "8.0.403" --yes
     ```
-    [BrowserStack CLI Docs Step 3: [Only for Macs with Apple silicon] Install dotnet x64 on MacOS](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests#CLI)
+    [BrowserStack CLI Docs Step 3: [Only for Macs with Apple Silicon] Install dotnet x64 on MacOS](https://www.browserstack.com/docs/app-automate/appium/getting-started/c-sharp/nunit/integrate-your-tests#CLI)
 
 
 - **Build Appium BrowserStack Tests**: Builds the Appium tests for Android or iOS 
@@ -110,14 +110,14 @@ The GitHub Actions workflow file [`.github/workflows/browserStackTests.yml`](.gi
   dotnet build BasicAppiumNunitSample/UITests.iOS/UITests.iOS.csproj
   ```
   
-  - **Run Appium BrowserStack Tests**: Runs the Appium tests on BrowserStack. For Macs with Siicon Chips, use the special installed dotnet path, for Android, use regular `dotnet`. 
-  ```bash
-  # For Android
-  dotnet test BasicAppiumNunitSample/UITests.Android/UITests.Android.csproj
+- **Run Appium BrowserStack Tests**: Runs the Appium tests on BrowserStack.
+   ```bash
+   # For Android
+   dotnet test BasicAppiumNunitSample/UITests.Android/UITests.Android.csproj
 
-  # For iOS
-  ./dotnet test BasicAppiumNunitSample/UITests.iOS/UITests.iOS.csproj
-  ```
+   # For iOS
+   ./dotnet test BasicAppiumNunitSample/UITests.iOS/UITests.iOS.csproj
+   ```
 
 
 ## BrowserStack Test Reports and Dashboard
@@ -134,6 +134,20 @@ Some highlights of the App Automate Test Report Includes :
 
 - **Session Video**: Captures the recording of the test as it happens in the session. Use this recording to go at a precise point in time when an error occurred and debug.
 
+![ Appium Video Gif](imgs/TestRunVideo.gif)
+
+
 - **Logs tab**: Select Text Logs, Console Logs, or Screenshots tab to view detailed logs. The Logs also include Appium Logs and Network Logs! 
 
 ![ Appium Logs Image](imgs/AppiumLogs.png)
+
+
+## Summary
+
+This repository demonstrates how to integrate [BrowserStack App Automate](https://www.browserstack.com/docs/app-automate/appium/overview) with Appium NUnit tests for .NET MAUI applications. It provides a comprehensive guide on setting up BrowserStack with your existing UITests and explains the GitHub Actions workflow used in this repository.
+
+Importance of UITesting and Running Tests on Real Devices
+UI testing is crucial for ensuring that your application behaves as expected from the user's perspective. Running tests on real devices, as opposed to emulators or simulators, helps identify issues that might only appear under real-world conditions, such as different network environments, device-specific quirks, and actual user interactions. [BrowserStack App Automate](https://www.browserstack.com/docs/app-automate/appium/overview) is a great service that makes it easy to run your existing Appium NUnit tests on their App Automate Device Cloud. 
+
+Check out the more samples at [dotnet/maui-samples](https://github.com/dotnet/maui-samples). Please let us know if anything is unclear or what you would like to see in follow up posts!
+
