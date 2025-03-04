@@ -1,4 +1,4 @@
-# Adding on Device Testing with BrowserStack to your Appium NUnit tests for .NET MAUI Apps
+# Use BrowserStack App Automate with Appium NUnit tests for .NET MAUI Apps
 
 Next in the series of UITesting blogs, this is a continuation of the Sample [.NET MAUI - UI testing with Appium and NUnit](https://learn.microsoft.com/en-us/samples/dotnet/maui-samples/uitest-appium-nunit/) created as part of Gerald's Blog [Getting started with UI testing .NET MAUI apps using Appium](https://devblogs.microsoft.com/dotnet/dotnet-maui-ui-testing-appium/). 
 
